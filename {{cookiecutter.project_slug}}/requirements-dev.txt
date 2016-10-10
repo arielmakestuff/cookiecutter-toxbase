@@ -1,0 +1,4 @@
+# Add your requirements here
+{% if cookiecutter.use_pytest == 'y' -%}
+pytest
+pytest-cov{%- endif %}
