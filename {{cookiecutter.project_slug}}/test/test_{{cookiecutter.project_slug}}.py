@@ -1,78 +1,57 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# {{cookiecutter.project_slug}}/test/test_{{ cookiecutter.project_slug }}.py
+# Copyright (C) 2016 authors and contributors (see AUTHORS file)
+#
+# This module is released under the MIT License.
 
-"""
-test_{{ cookiecutter.project_slug }}
-----------------------------------
+"""Example test"""
 
-Tests for `{{ cookiecutter.project_slug }}` module.
-"""
+# ============================================================================
+# Imports
+# ============================================================================
 
-{% if cookiecutter.use_pytest == 'y' -%}
+
+# Stdlib imports
+
+# Third-party imports
 import pytest
-{% else %}
-import sys
-import unittest
-{%- endif %}
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
-from contextlib import contextmanager
-from click.testing import CliRunner
-{%- endif %}
 
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
-from {{ cookiecutter.project_slug }} import cli
-{%- endif %}
+# Local imports
 
 
-{% if cookiecutter.use_pytest == 'y' -%}
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-    See more at: http://doc.pytest.org/en/latest/fixture.html
+# ============================================================================
+# Function
+# ============================================================================
+
+
+def fib(n):
     """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+    Fibonacci example function
 
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument.
+    :param n: integer
+    :return: n-th Fibonacci number
     """
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    assert n > 0
+    a, b = 1, 1
+    for i in range(n-1):
+        a, b = b, a+b
+    return a
 
 
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
-def test_command_line_interface():
-    runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert result.exit_code == 0
-    assert '{{ cookiecutter.project_slug }}.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
-    assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+# ============================================================================
+# Test
+# ============================================================================
 
-{%- endif %}
-{% else %}
-class Test{{ cookiecutter.project_slug|title }}(unittest.TestCase):
 
-    def setUp(self):
-        pass
+def test_fib():
+    """Test fib()"""
+    assert fib(1) == 1
+    assert fib(2) == 1
+    assert fib(7) == 13
+    with pytest.raises(AssertionError):
+        fib(-10)
 
-    def tearDown(self):
-        pass
 
-    def test_000_something(self):
-        pass
-{% if cookiecutter.command_line_interface|lower == 'click' %}
-    def test_command_line_interface(self):
-        runner = CliRunner()
-        result = runner.invoke(cli.main)
-        assert result.exit_code == 0
-        assert '{{ cookiecutter.project_slug }}.cli.main' in result.output
-        help_result = runner.invoke(cli.main, ['--help'])
-        assert help_result.exit_code == 0
-        assert '--help  Show this message and exit.' in help_result.output
-
-{%- endif %}
-{%- endif %}
+# ============================================================================
+#
+# ============================================================================
