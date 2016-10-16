@@ -11,7 +11,7 @@ PROJECT_SRC=$(abspath $PROJECT_DIR/{{ cookiecutter.project_slug }})
 
 tmux new-session -d -s startup
 tmux set-environment -g ENV $PROJECT_BINDIR/set-pyenv.sh
-tmux set-environment -g PATH "$PROJECT_DIR:$PATH"
+tmux set-environment -g VENV_PROJECT_DIR "$PROJECT_DIR:$PATH"
 tmux new-session -d -c $PROJECT_DIR -s work
 tmux split-window -h -c $PROJECT_DIR/test/unit
 tmux select-pane -t 0
