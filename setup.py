@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name='cookiecutter-toxbase',
     packages=[],
-    version='0.1.1',
+    version='0.1.3',
     description='Tox based template forked from cookiecutter-pypackage',
     author='Ariel De Ocampo',
     license='BSD',
