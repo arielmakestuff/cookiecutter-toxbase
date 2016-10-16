@@ -1,0 +1,13 @@
+currentversion = "0.1.0"
+
+[[place]]
+file = "cookiecutter.json"
+line-regex = '"version"'
+
+[[place]]
+file = "setup.cfg"
+line-regex = 'current_version'
+
+[[place]]
+file = "setup.py"
+line-regex = 'version'
