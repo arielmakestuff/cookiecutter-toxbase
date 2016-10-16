@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function abspath
+{
+    python -c "import os.path as op;print(op.abspath(\"$1\"))"
+}
+
+PROJECT_BINDIR=$(abspath $(dirname $0))
+PROJECT_DIR=$(abspath $PROJECT_BINDIR/..)
+PROJECT_SRC=$(abspath $PROJECT_DIR/{{ cookiecutter.project_slug }})
+
+tmux new-session -d -s startup
+tmux set-environment -g ENV $PROJECT_BINDIR/set-pyenv.sh
+tmux set-environment -g PATH "$PROJECT_DIR:$PATH"
+tmux new-session -d -c $PROJECT_DIR -s work
+tmux split-window -h -c $PROJECT_DIR/test/unit
+tmux select-pane -t 0
+tmux kill-session -t startup
+tmux attach-session -d -t work
