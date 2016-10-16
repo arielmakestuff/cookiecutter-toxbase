@@ -60,3 +60,10 @@ target/
 
 # pyenv python configuration file
 .python-version
+
+# *nix specific scripts
+/bin/set-pyenv.sh
+/bin/start
+
+# Other
+tmp/

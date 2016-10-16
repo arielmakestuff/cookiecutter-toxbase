@@ -1,0 +1,4 @@
+# Add your requirements here
+{% if cookiecutter.testrunner_bin == 'py.test' -%}
+pytest
+pytest-cov{%- endif %}
