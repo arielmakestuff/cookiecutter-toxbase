@@ -5,7 +5,7 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "project_url": "",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
-  "version": "0.1.3",
+  "version": "0.1.2",
   "testrunner_bin": "py.test",
   "use_tox": "y",
   "custom_pypi_index": "",
