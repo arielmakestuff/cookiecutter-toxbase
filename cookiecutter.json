@@ -6,7 +6,7 @@
   "project_url": "",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.1.0",
-  "use_pytest": "y",
+  "testrunner_bin": "py.test",
   "use_tox": "y",
   "custom_pypi_index": "",
   "create_author_file": "y",
