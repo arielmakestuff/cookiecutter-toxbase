@@ -1,0 +1,5 @@
+currentversion = "{{ cookiecutter.version }}"
+
+[[place]]
+file = "{{ cookiecutter.project_slug }}/__init__.py"
+line-regex = '__version__'
